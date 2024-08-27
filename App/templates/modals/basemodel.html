@@ -1,0 +1,83 @@
+<!-- Modal {ROOT} -->
+<div
+  class="modal fade" {% block modal-id %}{% endblock modal-id %}
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="defaultModalLabel"
+  aria-hidden="true"
+>
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="defaultModalLabel"> {% block modal-title %}<i class="fas fa-code"></i>&nbsp;&nbsp; {% endblock modal-title %}</h5>
+        <a
+        href="{% url 'opportunities' %}"
+          type="button"
+          class="btn-close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+      </a>
+      </div>
+      <form method="POST"{% block action %}{% endblock action %} {% block validation %} {% endblock validation %} enctype="multipart/form-data" autocomplete="off">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="input-group input-group-sm mb-2">
+            <button class="side-label btn border-second bg-light">
+              <i class="fas fa-user-alt"></i>
+            </button>
+            <input type="text" class="form-control name"{% block id-name %} {% endblock id-name %} name="name" placeholder="fullname">
+          </div>
+
+          <div class="input-group input-group-sm mb-2">
+            <button class="side-label btn border-second bg-light">
+              <i class="fas fa-universal-access"></i>
+            </button>
+            <input type="text" maxlength="2" class="form-control age" {% block id-age %} {% endblock id-age %} name="age" placeholder="your age">
+          </div> 
+
+          <div class="input-group input-group-sm mb-2">
+            <button class="side-label btn border-second bg-light">
+              <i class="fas fa-envelope"></i>
+            </button>
+            <input type="email" maxlength="40" class="form-control email" {% block id-email %} {% endblock id-email %} name="email" placeholder="Your Email">
+          </div>
+          <div class="input-group input-group-sm mb-2">
+            <button class="side-label btn border-second bg-light">
+              <i class="fas fa-phone"></i>
+            </button>
+            <input type="text" class="form-control phone" {% block id-phone %} {% endblock id-phone %} name="phone" placeholder="your phone">
+          </div>
+          <div class="input-group input-group-sm mb-2">
+            <button class="side-label btn border-second bg-light">
+              <i class="fas fa-map-marker-alt"></i>
+            </button>
+            <input type="text" class="form-control" {% block id-alamat %} {% endblock id-alamat %} name="alamat" placeholder="your Address">
+          </div>
+          <div class="mb-2 mt-3">
+            <textarea class="form-control" {% block id-experience %} {% endblock id-experience %} id="experience" name="experience" rows="3" placeholder="talk a little about your experience"></textarea>
+          </div>
+          <div class="mb-2 mt-3">
+            <textarea class="form-control skills" {% block id-skills %} {% endblock id-skills %} name="skills" rows="3" placeholder="talk a little about your skill"></textarea>
+          </div>
+          <hr class="mb-2 mt-3">
+          <div class="mb-3">
+            <div class="mb-3" style="font-size: 14px;"><i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp; Upload your resume </div>
+                <input type="file" name="file" {% block id-file %} {% endblock id-file %}  class="form-control form-control-sm"
+                      accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                      <div class="form-text" style="font-size: 12px;">* Allowed extension:pdf - doc - docx
+                      </div>
+                     </div>
+
+      </div>
+        <div class="modal-footer">
+        <a href="{% url 'opportunities' %}" class="btn btn-outline-dark btn-sm btn-cancel" data-dismiss="modal">
+          Close
+        </a>
+        <button type="submit" class="btn btn-primary btn-sm btn-send">Send</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

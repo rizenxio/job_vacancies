@@ -1,0 +1,20 @@
+{% extends 'modals/basemodel.html' %}
+
+<!-- Modal ID -->
+{% block modal-id %} id="datascienceModal" {% endblock modal-id %}
+<!-- Modal Title -->
+{% block modal-title %}<i class="fas fa-python"></i>&nbsp;&nbsp; Data Science {% endblock modal-title %}
+
+{% block validation %}
+onsubmit="return validateForm3()"
+{% endblock validation %}
+
+<!-- input id -->
+{% block id-name %} id="name3" {% endblock id-name %}
+{% block id-age %} id="age3" {% endblock id-age %}
+{% block id-email %} id="email3" {% endblock id-email %}
+{% block id-phone %} id="phone3" {% endblock id-phone %}
+{% block id-alamat %} id="alamat3" {% endblock id-alamat %}
+{% block id-experience %} id="experience3" {% endblock id-experience %}
+{% block id-skills %} id="skills3" {% endblock id-skills %}
+{% block id-file %} id="file3" {% endblock id-file %}
